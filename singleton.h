@@ -4,7 +4,7 @@
 
 #if __has_feature(objc_arc) // ARC
 
-#define singlegon_m(name) static id _instance;\
+#define singleton_m(name) static id _instance;\
 + (id)allocWithZone:(struct _NSZone *)zone {\
     static dispatch_once_t onceToken;\
     dispatch_once(&onceToken, ^{\
@@ -26,7 +26,7 @@ return _instance;\
 
 #else
 
-#define singlegon_m(name) static id _instance;\
+#define singleton_m(name) static id _instance;\
 + (id)allocWithZone:(struct _NSZone *)zone {\
 static dispatch_once_t onceToken;\
 dispatch_once(&onceToken, ^{\
